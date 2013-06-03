@@ -6,6 +6,9 @@ Experiments with the eBay API using golang
 Currently, search-listings.go is extremely simplistic. All it does is return the first 
 10 eBay listings from the provided search query.
 
+**Updates**  
+6/2/13 - Item price, shipping price, and seller location are now displayed
+
 **To Use**  
 You must make the following alterations in the code:  
 1. Assign your eBay production AppID to appID  
