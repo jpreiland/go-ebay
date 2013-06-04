@@ -89,6 +89,12 @@ func sendAndProcessRequest(url string) ResponseXML {
     return v
 }
 
+func eBaySearch(site, query, n string) {	
+	url := buildRequest(site, query, n)
+	v := sendAndProcessRequest(url)
+	printListings(v)
+}
+
 func main() {
 	site := []string{"EBAY-US", "EBAY-FR", "EBAY-DE", "EBAY-IT", "EBAY-ES"}
 	query := []string{"goblin grenade", "grenade gobeline", "goblingranate", "granata goblin", "granada trasgo"}
@@ -97,10 +103,4 @@ func main() {
 		go eBaySearch(site[i], query[i], num_items)	
 	}
 	fmt.Scanln()
-}
-
-func eBaySearch(site, query, n string) {	
-	url := buildRequest(site, query, n)
-	v := sendAndProcessRequest(url)
-	printListings(v)
 }
