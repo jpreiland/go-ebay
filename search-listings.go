@@ -78,6 +78,7 @@ func printListings(v ResponseXML) {
     }
 }
 
+// send, receive, parse, and store request data
 func sendAndProcessRequest(url string) ResponseXML {
 	r, _ := http.Get(url)
 	response, _ := ioutil.ReadAll(r.Body)
@@ -89,6 +90,7 @@ func sendAndProcessRequest(url string) ResponseXML {
     return v
 }
 
+// build url and initiate search, and then print results
 func eBaySearch(site, query, n string) {	
 	url := buildRequest(site, query, n)
 	v := sendAndProcessRequest(url)
@@ -96,6 +98,7 @@ func eBaySearch(site, query, n string) {
 }
 
 func main() {
+	// site and query should have the same amount of elements. site MUST have at least as many elements as query.
 	site := []string{"EBAY-US", "EBAY-FR", "EBAY-DE", "EBAY-IT", "EBAY-ES"}
 	query := []string{"goblin grenade", "grenade gobeline", "goblingranate", "granata goblin", "granada trasgo"}
 	num_items := "10"
