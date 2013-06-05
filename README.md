@@ -8,7 +8,7 @@ Currently, search-listings.go is extremely simplistic. All it does is return the
 
 **Updates**  
 6/2/13 - Item price, shipping price, and seller location are now displayed  
-6/3/13 - The new default is to search 5 eBay sites with 5 queries. Default site array contains eBay US, France, Germany, Italy, and Spain. Default query array contains corresponding translations of the Magic: The Gathering card Goblin Grenade. These searches should operate concurrently (assuming I coded it correctly)
+6/3/13 - The new default is to search 5 eBay sites with 5 queries. Default site array contains eBay US, France, Germany, Italy, and Spain. Default query array contains corresponding translations of the Magic: The Gathering card Goblin Grenade. These searches should operate concurrently (assuming I coded it correctly)  
 6/4/13 - Minor comment additions
 
 **To Use**  
