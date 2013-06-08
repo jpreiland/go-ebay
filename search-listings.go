@@ -17,6 +17,7 @@ type Item struct {
 	CurrentPrice float64 `xml:"sellingStatus>currentPrice"`
 	ShippingPrice float64 `xml:"shippingInfo>shippingServiceCost"`
 	BINprice float64 `xml:"listingInfo>buyItNowPrice"`
+	ShipsTo []string  `xml:"shippingInfo>shipToLocations"`
 }
 
 type ResponseXML struct {
@@ -71,14 +72,15 @@ func printListings(v ResponseXML) {
     	}else{
     		fmt.Println("Shipping: Free")
     	}
+    	// Ships to
+    	fmt.Printf("Ships to: %+v \n", v.Items[i].ShipsTo)
     	// Location
-    	fmt.Println("Location: " + v.Items[i].Location)
+    	fmt.Println("Seller Location: " + v.Items[i].Location)
 
     	fmt.Println("-------------------------------------")
     }
 }
 
-// send, receive, parse, and store request data
 func sendAndProcessRequest(url string) ResponseXML {
 	r, _ := http.Get(url)
 	response, _ := ioutil.ReadAll(r.Body)
@@ -90,7 +92,6 @@ func sendAndProcessRequest(url string) ResponseXML {
     return v
 }
 
-// build url and initiate search, and then print results
 func eBaySearch(site, query, n string) {	
 	url := buildRequest(site, query, n)
 	v := sendAndProcessRequest(url)
@@ -98,7 +99,6 @@ func eBaySearch(site, query, n string) {
 }
 
 func main() {
-	// site and query should have the same amount of elements. site MUST have at least as many elements as query.
 	site := []string{"EBAY-US", "EBAY-FR", "EBAY-DE", "EBAY-IT", "EBAY-ES"}
 	query := []string{"goblin grenade", "grenade gobeline", "goblingranate", "granata goblin", "granada trasgo"}
 	num_items := "10"

@@ -11,7 +11,8 @@ This program searches 5 different eBay sites at the moment.
 6/2/13 - Item price, shipping price, and seller location are now displayed  
 6/3/13 - The new default is to search 5 eBay sites with 5 queries. Default site array contains eBay US, France, Germany, Italy, and Spain. Default query array contains corresponding translations of the Magic: The Gathering card Goblin Grenade. These searches operate concurrently.  
 6/4/13 - Minor comment additions  
-6/5/13 - Added items to To Do list
+6/5/13 - Added items to To Do list  
+6/8/13 - Displays locations that seller is shipping to
 
 **To Use**  
 You must make the following alterations in the code:  
@@ -23,7 +24,7 @@ You must make the following alterations in the code:
 
 **To Do**
 - flesh out Item struct to allow access to all XML response information
-- allow users to easily specify which eBay site is being queried[2]
+- allow users to easily specify which eBay site is being queried[1]
 - accomodate for advanced query options such as filtering and sorting
 - general error handling/fool-proofing, etc.  
 - ~~Provide support for foreign language characters (some listing titles display improperly)~~[2]  
