@@ -13,13 +13,13 @@ This program searches 5 different eBay sites at the moment.
 6/4/13 - Minor comment additions  
 6/5/13 - Added items to To Do list  
 6/8/13 - Displays locations that seller is shipping to  
-6/9/13 - Displays listing URL
+6/9/13 - Displays listing URL, Item image thumbnail accessible in XMLResponse  
 
 **To Use**  
 You must make the following alterations in the code:  
 1. Assign your eBay production AppID to appID  
 2. Put your search terms into query array   
-3. (optional) Specify how many sites to query with for loop in main() (limit to one iteration to only search US eBay site)  
+3. (optional) Specify how many sites to query with for loop in main()  
 4. (optional) Adjust amount of search results [per site] with num_items
   
 
@@ -35,5 +35,5 @@ You must make the following alterations in the code:
  
 [1] eBay sites can be specified with site array. 5 default sites are specified. Items in 
  query array should correspond to sites in site array. I'll work on a more user-friendly implementation.  
-[2] Go 1.1 seems to have fixed many character issues. The black star (U+2605) character displays as "?", and I currently
+[2] Go 1.1 seems to have fixed many character issues. However, the black star (U+2605) character displays as "?", and I currently
  have not found a fix for that.

@@ -19,6 +19,7 @@ type Item struct {
 	BINprice float64 `xml:"listingInfo>buyItNowPrice"`
 	ShipsTo []string  `xml:"shippingInfo>shipToLocations"`
 	ListingURL string `xml:"viewItemURL"`
+	ImageURL string `xml:"galleryURL"`
 }
 
 type ResponseXML struct {
