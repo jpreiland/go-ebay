@@ -8,7 +8,7 @@ import (
 	"strconv"
 )
 
-var appID string = "" // PUT YOUR PRODUCTION APPID HERE
+var appID string = "" //YOUR PRODUCTION APPID HERE
 
 type Item struct {
 	ItemID string `xml:"itemId"`
@@ -18,6 +18,7 @@ type Item struct {
 	ShippingPrice float64 `xml:"shippingInfo>shippingServiceCost"`
 	BINprice float64 `xml:"listingInfo>buyItNowPrice"`
 	ShipsTo []string  `xml:"shippingInfo>shipToLocations"`
+	ListingURL string `xml:"viewItemURL"`
 }
 
 type ResponseXML struct {
@@ -76,6 +77,8 @@ func printListings(v ResponseXML) {
     	fmt.Printf("Ships to: %+v \n", v.Items[i].ShipsTo)
     	// Location
     	fmt.Println("Seller Location: " + v.Items[i].Location)
+    	// URL
+    	fmt.Println("Listing URL: " + v.Items[i].ListingURL)
 
     	fmt.Println("-------------------------------------")
     }
