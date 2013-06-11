@@ -8,7 +8,7 @@ import (
 	"strconv"
 )
 
-var appID string = "" //YOUR PRODUCTION APPID HERE
+var appID string = "" // YOUR PRODUCTION APPID HERE
 
 type Item struct {
 	ItemID string `xml:"itemId"`
@@ -20,11 +20,13 @@ type Item struct {
 	ShipsTo []string  `xml:"shippingInfo>shipToLocations"`
 	ListingURL string `xml:"viewItemURL"`
 	ImageURL string `xml:"galleryURL"`
+	Site string `xml:"globalId"`
 }
 
 type ResponseXML struct {
 	XMLName xml.Name `xml:"findItemsByKeywordsResponse"`
 	Items []Item `xml:"searchResult>item"`
+	TimeStamp string `xml:"timestamp"`
 }
 
 
@@ -59,6 +61,8 @@ func keywordConvert(keywords string) string {
 
 // print out information on each listing
 func printListings(v ResponseXML) {
+	fmt.Println(v.TimeStamp)
+	fmt.Println(v.Items[0].Site)
 	for i := 0; i < len(v.Items); i++ {
 		// Item title
     	fmt.Println(strconv.Itoa((i+1)) + ". " + v.Items[i].Title)

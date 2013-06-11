@@ -8,12 +8,9 @@ Currently, search-listings.go is extremely simplistic. All it does is return the
 This program searches 5 different eBay sites at the moment.
 
 **Updates**  
-6/2/13 - Item price, shipping price, and seller location are now displayed  
-6/3/13 - The new default is to search 5 eBay sites with 5 queries. Default site array contains eBay US, France, Germany, Italy, and Spain. Default query array contains corresponding translations of the Magic: The Gathering card Goblin Grenade. These searches operate concurrently.  
-6/4/13 - Minor comment additions  
-6/5/13 - Added items to To Do list  
 6/8/13 - Displays locations that seller is shipping to  
 6/9/13 - Displays listing URL, Item image thumbnail accessible in XMLResponse  
+6/10/13 - Displays site before each group of listings, as well as the timestamp of the response
 
 **To Use**  
 You must make the following alterations in the code:  
