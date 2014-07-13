@@ -106,12 +106,23 @@ func eBaySearch(site, query, n string) {
 	printListings(v)
 }
 
+func GetProducts(sites []string, products []string, products_per_page string) {
+	 for _, site := range sites {
+		for _, product := range products {
+			eBaySearch(site, product, products_per_page)
+    		}
+  	}
+}
+
 func main() {
 	site := []string{"EBAY-US", "EBAY-FR", "EBAY-DE", "EBAY-IT", "EBAY-ES"}
 	query := []string{"goblin grenade", "grenade gobeline", "goblingranate", "granata goblin", "granada trasgo"}
 	num_items := "10"
-	for i := 0; i < len(site); i++ {
-		go eBaySearch(site[i], query[i], num_items)	
-	}
-	fmt.Scanln()
+	
+	comm := make(chan string)
+  	go func() {
+    	  	GetProducts(site, query, num_items)
+    		comm <- "Finish"
+        }()
+  	fmt.Println(<- comm)
 }
